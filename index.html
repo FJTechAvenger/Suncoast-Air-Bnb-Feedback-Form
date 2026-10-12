@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087da5">
+<title>Guest Feedback | Sun Coast Air BnB Fiji</title>
+<style>
+:root{--navy:#063b5b;--blue:#087da5;--aqua:#11b6c9;--gold:#e9a72a;--ink:#16334a;--muted:#61788a;--line:#d9e8ef}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 15% 0%,#d7f6fb 0,transparent 38%),linear-gradient(180deg,#eefbfe,#f9fcfd 48%,#e6f6fa);font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);line-height:1.5}
+.page{max-width:1060px;margin:28px auto;padding:0 18px 32px}
+.hero{position:relative;overflow:hidden;border:1px solid #ffffffcc;border-radius:28px 28px 0 0;min-height:300px;display:flex;align-items:center;background:linear-gradient(100deg,#fffffff5 0%,#ffffffde 46%,#046c972e 100%),url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1800&q=90') center/cover;box-shadow:0 16px 45px #054a681f}
+.hero:after{content:"";position:absolute;left:-4%;right:-4%;bottom:-45px;height:80px;border-radius:50% 50% 0 0;background:#ffffffcc;pointer-events:none}
+.brand{position:relative;z-index:1;display:flex;align-items:center;gap:28px;padding:28px 34px;width:100%}
+.logo{width:245px;max-height:205px;object-fit:contain;background:#fffffff5;padding:10px;border:1px solid #ffffffcc;border-radius:22px;box-shadow:0 12px 28px #07435e24}
+.hero-copy{max-width:600px}.hero h1{font-size:clamp(30px,4.8vw,51px);line-height:1.02;color:var(--navy);margin:8px 0 12px;letter-spacing:-1.4px}
+.hero p{font-size:17px;margin:0 0 16px;color:#244a61}.hero p strong{color:var(--navy)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:99px;background:#fff3d3;border:1px solid #f3dfad;padding:8px 15px;color:#72500c;font-size:13px;font-weight:800;box-shadow:0 4px 12px #7d5d1210}
+.intro{background:linear-gradient(100deg,#063b5b,#087da5 65%,#0bb4c4);color:white;padding:15px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+form{background:#f7fcfef2;padding:20px;display:grid;gap:17px}
+.section{background:#fff;border:1px solid #d2e7efe6;border-radius:19px;overflow:hidden;box-shadow:0 7px 22px #0f536f10;transition:box-shadow .18s}
+.section:hover{box-shadow:0 10px 28px #0f536f17}
+.section-head{background:linear-gradient(105deg,#087da5,#0ba7c1 72%,#12c1cb);color:#fff;padding:12px 17px;display:flex;align-items:center;gap:12px}
+.num{width:40px;height:40px;border:2px solid #fffffff2;border-radius:50%;display:grid;place-items:center;font-size:20px;font-weight:850;flex-shrink:0;box-shadow:0 0 0 4px #ffffff1f}
+.section-head h2{font-size:16px;margin:0;text-transform:uppercase;letter-spacing:.7px;font-weight:850}.section-head small{margin-left:auto;text-align:right;font-size:12px}
+.content{padding:20px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:grid;gap:7px}.field label,.question{font-size:13px;font-weight:750;color:#23465c}
+.field input,.field textarea,.field select{width:100%;border:1px solid #c8dbe4;border-radius:11px;padding:13px 14px;font:inherit;font-size:14px;color:var(--ink);background:#fbfdfe;outline:none;transition:border-color .15s,box-shadow .15s,background .15s}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--aqua);background:white;box-shadow:0 0 0 4px #11b6c922}.field textarea{resize:vertical;min-height:110px}
+.rating-guide{font-size:13px;color:var(--muted);margin:0 0 13px}
+.rating-row{display:grid;grid-template-columns:minmax(190px,1fr) repeat(5,48px);align-items:center;gap:5px;padding:11px 12px;border-radius:11px}.rating-row:nth-child(even){background:linear-gradient(90deg,#eef8fb,#f7fcfd)}
+.rating-label{font-size:14px;font-weight:600}.rating-row label{display:grid;place-items:center;cursor:pointer;border-radius:8px;padding:2px}.rating-row label:focus-within{outline:2px solid var(--aqua)}
+.rating-row input{position:absolute;opacity:0;pointer-events:none}.star{font-size:25px;color:#c2cfd5;line-height:1;transition:color .12s,transform .12s}.rating-row label:hover .star{transform:scale(1.13);color:var(--gold)}
+.scale-head{display:grid;grid-template-columns:minmax(190px,1fr) repeat(5,48px);gap:5px;text-align:center;font-size:10px;color:var(--muted);font-weight:800;padding:0 12px 8px}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 25px}.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer;line-height:1.4}.check input{accent-color:var(--blue);width:18px;height:18px;margin-top:1px;flex-shrink:0}
+.comments{display:grid;grid-template-columns:1fr 1fr;gap:16px}.recommend{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.recommend label{display:flex;gap:8px;align-items:center;font-size:14px;cursor:pointer;padding:8px 10px;border-radius:10px;background:#f5fafc}.recommend input{accent-color:var(--blue);width:18px;height:18px}
+.consent{margin-top:16px;padding:14px;background:linear-gradient(90deg,#edf8fb,#f5fbfd);border:1px solid #e1eff4;border-radius:12px}
+.submit-wrap{padding:0 5px 8px}.submit{border:0;width:100%;padding:18px;border-radius:15px;background:linear-gradient(100deg,#08a9e0,#0074a6 70%,#075b83);color:#fff;font-size:17px;font-weight:850;letter-spacing:.9px;cursor:pointer;box-shadow:0 8px 18px #00699733;transition:transform .15s,filter .15s,box-shadow .15s}
+.submit:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 11px 23px #00699740}.submit:disabled{opacity:.65;cursor:wait;transform:none}
+#submitStatus{border:1px solid #d5e7ee;font-weight:600}.footer{text-align:center;padding:27px 12px 10px;color:var(--navy)}.footer strong{font-size:clamp(23px,3vw,30px);font-style:italic;color:#086b94}.footer p{margin:5px 0;color:var(--muted);font-size:12px;letter-spacing:.8px}
+@media(max-width:720px){.page{margin:0 auto;padding:0 0 18px}.hero{border-radius:0;min-height:0}.brand{flex-direction:column;text-align:center;padding:20px 16px 34px;gap:13px}.logo{width:185px;max-height:150px;border-radius:18px}.hero h1{font-size:34px}.hero p{font-size:15px}.intro{padding:13px 16px;font-size:13px}form{padding:10px;gap:12px}.content{padding:14px}.section-head{padding:10px 11px;gap:9px}.section-head h2{font-size:13px;letter-spacing:.35px}.section-head small{font-size:10px}.num{width:34px;height:34px;font-size:17px}.grid{grid-template-columns:1fr}.rating-row,.scale-head{grid-template-columns:minmax(110px,1fr) repeat(5,minmax(25px,35px));gap:1px;padding-left:5px;padding-right:5px}.rating-label{font-size:11px}.star{font-size:21px}.scale-head{font-size:8px}.check-grid,.comments{grid-template-columns:1fr}.recommend{display:grid;grid-template-columns:1fr 1fr}.recommend label{font-size:12px;padding:7px}.section{border-radius:14px}.submit{font-size:15px;padding:16px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="brand">
+      <img class="logo" src="suncoast-logo.png" alt="Sun Coast Air BnB Fiji logo">
+      <div class="hero-copy">
+        <h1>Guest Feedback Form</h1>
+        <p><strong>Thank you for staying with us!</strong><br>Your feedback helps us maintain high standards and create even better experiences for all our guests.</p>
+        <span class="pill">◷ &nbsp; Takes about 2–3 minutes</span>
+      </div>
+    </div>
+  </header>
+  <div class="intro"><strong>Sun Coast Air BnB Fiji</strong><span>Vinaka vakalevu — thank you for your feedback!</span></div>
+
+  <!-- Email delivery uses your own Google Apps Script web app. See setup instructions in the ZIP package. -->
+  <form id="feedbackForm">
+<section class="section">
+      <div class="section-head"><span class="num">1</span><h2>Your Stay</h2><small>Please include your name and email for reference.</small></div>
+      <div class="content grid">
+        <div class="field"><label for="guest">Guest name / Organization representative</label><input id="guest" name="Guest name or organization representative" placeholder="Full name or representative" required></div>
+        <div class="field"><label for="guestEmail">Guest email address (for reference)</label><input id="guestEmail" name="Guest email address" type="email" placeholder="you@example.com" required></div>
+        <div class="field"><label for="booking">Booking or room reference (optional)</label><input id="booking" name="Booking or room reference" placeholder="e.g. Villa 1 or ABC123"></div>
+        <div class="field"><label for="departure">Departure date</label><input id="departure" name="Departure date" type="date"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="num">2</span><h2>Rate Your Experience</h2><small>1 = Very poor · 5 = Excellent</small></div>
+      <div class="content">
+        <p class="rating-guide">Please choose one star rating for each area.</p>
+        <div class="scale-head"><span></span><span>1<br>Very poor</span><span>2<br>Poor</span><span>3<br>Average</span><span>4<br>Good</span><span>5<br>Excellent</span></div>
+        <div id="ratings"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="num">3</span><h2>Facilities and Hygiene</h2><small>Tick all that apply.</small></div>
+      <div class="content">
+        <p class="rating-guide">Did you experience any issues during your stay?</p>
+        <div class="check-grid">
+          <label class="check"><input type="checkbox" name="Issues" value="Bathroom or toilet cleanliness">Bathroom or toilet cleanliness</label>
+          <label class="check"><input type="checkbox" name="Issues" value="Wi-Fi or internet connectivity">Wi-Fi or internet connectivity</label>
+          <label class="check"><input type="checkbox" name="Issues" value="Bedding, linen or towels">Bedding, linen or towels</label>
+          <label class="check"><input type="checkbox" name="Issues" value="Furniture or appliances">Furniture or appliances</label>
+          <label class="check"><input type="checkbox" name="Issues" value="Kitchen or cooking equipment">Kitchen or cooking equipment</label>
+          <label class="check"><input type="checkbox" name="Issues" value="Noise or maintenance">Noise or maintenance</label>
+          <label class="check"><input type="checkbox" name="Issues" value="Air conditioning or ventilation">Air conditioning or ventilation</label>
+          <label class="check"><input type="checkbox" name="Issues" value="No issues experienced">No issues experienced</label>
+          <label class="check"><input type="checkbox" name="Issues" value="Hot water or water supply">Hot water or water supply</label>
+          <label class="check"><input type="checkbox" name="Issues" value="Other">Other (please specify below)</label>
+        </div>
+        <div class="field" style="margin-top:14px"><label for="other">Other issue (optional)</label><input id="other" name="Other issue" placeholder="Please specify..."></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="num">4</span><h2>Your Comments</h2></div>
+      <div class="content comments">
+        <div class="field"><label for="enjoyed">What did you enjoy most about your stay?</label><textarea id="enjoyed" name="What you enjoyed" placeholder="Tell us what we did well..."></textarea></div>
+        <div class="field"><label for="improve">What could we improve?</label><textarea id="improve" name="Suggested improvements" placeholder="Any suggestions to make your next stay even better?"></textarea></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="num">5</span><h2>Would You Recommend Us?</h2></div>
+      <div class="content">
+        <div class="recommend">
+          <label><input type="radio" name="Would recommend" value="Definitely" required>Definitely</label>
+          <label><input type="radio" name="Would recommend" value="Probably">Probably</label>
+          <label><input type="radio" name="Would recommend" value="Not sure">Not sure</label>
+          <label><input type="radio" name="Would recommend" value="Probably not">Probably not</label>
+        </div>
+        <div class="consent"><label class="check"><input type="checkbox" name="Contact permission" value="Yes, contact me about my feedback">Sun Coast Air BnB Fiji may contact me about my feedback or request permission to share my review.</label></div>
+      </div>
+    </section>
+    <div class="submit-wrap"><button id="submitBtn" class="submit" type="submit">➤ &nbsp; SUBMIT FEEDBACK</button></div>
+    <p id="submitStatus" role="status" style="display:none;margin:0 6px 12px;padding:13px;border-radius:10px"></p>
+  </form>
+  <footer class="footer"><strong>Vinaka vakalevu!</strong><p>Thank you for your time and feedback.</p><p>WE HOPE TO WELCOME YOU BACK SOON.</p></footer>
+</div>
+<script>
+const categories = [
+  ["Overall experience","Overall experience"],
+  ["Cleanliness and hygiene","Cleanliness and hygiene"],
+  ["Facilities and amenities","Facilities and amenities"],
+  ["Comfort and condition of the accommodation","Comfort and condition"],
+  ["Customer service and communication","Customer service and communication"],
+  ["Value for money","Value for money"]
+];
+const ratings = document.getElementById("ratings");
+categories.forEach(([label,name], index) => {
+  const row = document.createElement("div");
+  row.className = "rating-row";
+  const text = document.createElement("span");
+  text.className = "rating-label";
+  text.textContent = label;
+  row.appendChild(text);
+  for(let n=1;n<=5;n++){
+    const lab=document.createElement("label");
+    lab.title=`${n} out of 5`;
+    const input=document.createElement("input");
+    input.type="radio"; input.name=`Rating - ${name}`; input.value=String(n); input.required=true;
+    const star=document.createElement("span"); star.className="star"; star.textContent="★";
+    input.addEventListener("change",()=>{
+      row.querySelectorAll(".star").forEach((s,i)=>s.style.color=i<n?"#e6a21a":"#b4c1c9");
+    });
+    lab.append(input,star); row.appendChild(lab);
+  }
+  ratings.appendChild(row);
+});
+// Avoid contradictory issue selections.
+const issueChecks=[...document.querySelectorAll('input[name="Issues"]')];
+issueChecks.forEach(input=>input.addEventListener("change",()=>{
+  if(input.value==="No issues experienced" && input.checked) issueChecks.filter(x=>x!==input).forEach(x=>x.checked=false);
+  if(input.value!=="No issues experienced" && input.checked) {
+    const none=issueChecks.find(x=>x.value==="No issues experienced"); if(none) none.checked=false;
+  }
+}));
+
+// EMAIL DELIVERY SETUP: paste your deployed Google Apps Script Web App URL below.
+const GOOGLE_APPS_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const feedbackForm = document.getElementById("feedbackForm");
+feedbackForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const status = document.getElementById("submitStatus");
+  const button = document.getElementById("submitBtn");
+  if (!GOOGLE_APPS_SCRIPT_URL.startsWith("https://script.google.com/macros/s/")) {
+    status.style.display = "block";
+    status.style.background = "#fff4d9";
+    status.style.color = "#674a0a";
+    status.textContent = "Setup required: deploy the Google Apps Script and paste its Web App URL into this HTML file before accepting guest submissions.";
+    return;
+  }
+  const fd = new FormData(feedbackForm);
+  const data = {};
+  for (const [key, value] of fd.entries()) {
+    if (key === "Issues") {
+      data[key] = data[key] || [];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  }
+  data.business = "Sun Coast Air BnB Fiji";
+  data.submittedAt = new Date().toISOString();
+  button.disabled = true;
+  button.textContent = "SENDING FEEDBACK...";
+  status.style.display = "block";
+  status.style.background = "#eaf7fb";
+  status.style.color = "#064b70";
+  status.textContent = "Submitting your feedback securely. Please wait…";
+  try {
+    // no-cors is used because Apps Script web apps do not provide browser CORS headers.
+    // Delivery confirmation is therefore not readable by the browser; the server sends the PDF emails.
+    await fetch(GOOGLE_APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {"Content-Type": "text/plain;charset=utf-8"},
+      body: JSON.stringify(data)
+    });
+    status.style.background = "#e8f8ed";
+    status.style.color = "#176334";
+    status.textContent = "Thank you! Your feedback has been submitted. If you experience any issue, please contact the host.";
+    feedbackForm.reset();
+    document.querySelectorAll(".rating-row .star").forEach(s => s.style.color = "#b4c1c9");
+  } catch (error) {
+    status.style.background = "#fdecec";
+    status.style.color = "#8a2020";
+    status.textContent = "We couldn't submit your feedback. Please check your internet connection and try again.";
+  } finally {
+    button.disabled = false;
+    button.innerHTML = "➤ &nbsp; SUBMIT FEEDBACK";
+  }
+});
+
+</script>
+</body>
+</html>

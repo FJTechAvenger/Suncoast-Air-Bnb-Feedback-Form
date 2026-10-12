@@ -1,0 +1,18 @@
+SUN COAST AIR BNB FIJI — SETUP
+
+Package files:
+- index.html: refreshed responsive guest feedback form and CSS
+- suncoast-logo.png: supplied logo image asset
+- google_apps_script_email_pdf.gs: Google Apps Script PDF email service
+
+Apps Script setup:
+1. Visit https://script.google.com and create a new project.
+2. Paste google_apps_script_email_pdf.gs into Code.gs and save.
+3. Deploy > New deployment > Web app.
+4. Execute as: Me. Who has access: Anyone.
+5. Deploy and authorize permissions; copy the Web app URL.
+6. In index.html, replace PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE with that URL.
+7. Keep index.html and suncoast-logo.png together, then publish them on your web host.
+8. Submit a test and verify PDF delivery to iliutaki@gmail.com and mliutaki@gmail.com.
+
+The form does not use FormSubmit. Submission is not active until the deployment URL is added and tested. Browser no-cors mode cannot confirm delivery, so verify both inboxes and spam folders.
